@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTacToe</title>
+    <style>
+        .mainn {
+            margin-top: 100px;
+            margin-left: 33.33%;
+            width: 40%;
+        }
+        .box {
+            width:30%;
+            border:1px solid black;
+            min-height: 100px;
+            float:left;
+            font-size: 85px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        button{
+            float: left;
+            margin-top: 50px;
+            margin-left: 200px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+        .disable-div {
+          pointer-events: none;
+        }
+        /* #winner{
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            float: left;
+            margin-top: 10px;
+            color: red;
+        } */
+    </style>
+</head>
+<body>
+    <div class="mainn">
+        <div class="row1">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+        </div>
+        <div class="row2">
+            <div class="box box4"></div>
+            <div class="box box5"></div>
+            <div class="box box6"></div>
+        </div>
+        <div class="row3">
+            <div class="box box7"></div>
+            <div class="box box8"></div>
+            <div class="box box9"></div>
+        </div> 
+        <br> <br>
+        <!-- <label id="winner"></label> -->
+        <button>Reset</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //boxes to array
+        let boxes = [];
+        let flag=false;
+        let p1;
+        for(let i=0;i<9;i++){
+            boxes[i] = $(".box"+(i+1));
+        }        
+        // input X or O
+        for(let i=0;i<9;i++){
+            boxes[i].on("click",function(){
+                if(flag===false){
+                    boxes[i].text("X");
+                    p1 = boxes[i].text();
+                    flag=true;
+                    boxes[i].addClass("disable-div");
+                    checkWin();
+                } else{
+                    boxes[i].text("O");
+                    p1 = boxes[i].text();
+                    flag=false;
+                    boxes[i].addClass("disable-div");
+                    checkWin();
+                }
+            })
+        }
+        //winning conditions
+        function checkWin(){
+            if((boxes[0].text()==="X" && boxes[1].text()==="X" && boxes[2].text()==="X") ||
+            (boxes[3].text()==="X" && boxes[4].text()==="X" && boxes[5].text()==="X") ||
+            (boxes[6].text()==="X" && boxes[7].text()==="X" && boxes[8].text()==="X") ||
+            (boxes[0].text()==="X" && boxes[3].text()==="X" && boxes[6].text()==="X") ||
+            (boxes[1].text()==="X" && boxes[4].text()==="X" && boxes[7].text()==="X") ||
+            (boxes[2].text()==="X" && boxes[5].text()==="X" && boxes[8].text()==="X") ||
+            (boxes[0].text()==="X" && boxes[4].text()==="X" && boxes[8].text()==="X") ||
+            (boxes[2].text()==="X" && boxes[4].text()==="X" && boxes[6].text()==="X")
+            ){
+                alert("Winner is: "+p1);
+               // $("#winner").text("Winner is: "+p1);
+                endGame();
+            }
+            if((boxes[0].text()==="O" && boxes[1].text()==="O" && boxes[2].text()==="O") ||
+            (boxes[3].text()==="O" && boxes[4].text()==="O" && boxes[5].text()==="O") ||
+            (boxes[6].text()==="O" && boxes[7].text()==="O" && boxes[8].text()==="O") ||
+            (boxes[0].text()==="O" && boxes[3].text()==="O" && boxes[6].text()==="O") ||
+            (boxes[1].text()==="O" && boxes[4].text()==="O" && boxes[7].text()==="O") ||
+            (boxes[2].text()==="O" && boxes[5].text()==="O" && boxes[8].text()==="O") ||
+            (boxes[0].text()==="O" && boxes[4].text()==="O" && boxes[8].text()==="O") ||
+            (boxes[2].text()==="O" && boxes[4].text()==="O" && boxes[6].text()==="O")
+            ){
+                alert("Winner is: "+p1);
+               // $("#winner").text("Winner is: "+p1);
+                endGame();
+            }
+        }
+        //reset
+        $("button").click(function(){
+            for(let i=0;i<9;i++){
+                boxes[i].text("");
+                boxes[i].removeClass("disable-div");
+            }   
+        })
+        //end game
+        function endGame(){
+            for(let i=0;i<9;i++){
+                boxes[i].addClass("disable-div");
+            }
+        }
+    </script>
+</body>
+</html>
