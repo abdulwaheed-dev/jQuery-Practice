@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>JS DOM paragraph style</title>
+    </head>
+    <body>
+        <p id='text'>jQuery Exercise</p>
+        <div>
+            <button id="jsstyle" onclick="js_style()">Style</button>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function js_style(){
+            let text = $("#text");
+            text.css("color", "red");
+            text.css("font-family", "arial");
+            text.css("font-size","30px");
+        }
+    </script>
+</html>

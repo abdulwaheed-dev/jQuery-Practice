@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM Exercise</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+        .brown{
+            background-color: brown;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .purple{
+            background-color: purple;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .car1 {
+            background-color: #8C9C12;
+        }
+        .car2 {
+            background-color: #1DA788;
+        }
+        .car1, .car2 {
+            margin-left: 0;
+        }
+    </style>
+    </head>
+    <body>
+        <h1 id="change_heading">Change Me!</h1>
+        SELECTED COLOR <span class="selected">None!</span>
+        <section>
+            <div class="brown"></div>
+            <div class="green"></div>
+            <div class="blue"></div>
+            <div class="yellow"></div>
+        </section>
+        <h2>Race!</h2>
+        <button>Start the race!</button>
+        <br>
+        <div class="car1"></div>
+        <br>
+        <div class="car2"></div>
+    <!-- <script src="script.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        //1.
+        $(document).ready(function(){
+            //alert("Dom Loaded.");
+            console.log("Dom Loaded.");
+        })
+        //2.
+        $("#change_heading").text("Hello World");
+        //3.
+        let $divs = $("section").children();
+        // $divs.each(function(index){
+        //     $divs[index].on("mouseover",function(){
+        //         let color = $divs[i].className;
+        //         $(".selected").text(color);
+        //     })
+        // })
+
+        // for(let i=0; i<=$divs.length-1; i++){
+        //     let $div = $divs[i];
+        //     $div.hover(function(){
+        //         let color = $divs[i].className;
+        //         $(".selected").text(color);
+        //     })
+        // }
+        
+
+    </script>
+    </body>
+</html>
